@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: happy-world-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: happy-world-app
+  template:
+    metadata:
+      labels:
+        app: happy-world-app
+    spec:
+      containers:
+        - name: happy-world-app
+          image: public.ecr.aws/h4k8u6r3/eks-lab:happy-world-app
+          ports:
+            - containerPort: 5001
