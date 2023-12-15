@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: happy-world-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: happy-world-app
+  template:
+    metadata:
+      labels:
+        app: happy-world-app
+    spec:
+      containers:
+        - name: happy-world-app
+          image: kubeje2/happy-world-app:3
+          ports:
+            - containerPort: 5001
